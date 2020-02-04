@@ -1,0 +1,22 @@
+public interface GamblingPlayer{
+	String name;
+	double balance;
+
+	Player(String name, double balance){
+		this.name = name;
+		this.balance = balance;
+	}
+
+	public double placeBet(){
+		//ask for bet
+		balance -= bet
+		return bet;
+	}
+
+	public double getWinnings(double winnings){
+		balance += winnings;
+		return winnings;
+	}
+
+	//setters and getters
+}

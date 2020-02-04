@@ -1,0 +1,6 @@
+public class Player extends GamblingPlayer{
+
+	Player(String name, double balance){
+		super(name, balance);
+	}
+}

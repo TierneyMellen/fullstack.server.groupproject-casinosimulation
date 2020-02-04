@@ -1,0 +1,14 @@
+//technically this class should be called die, dice is plural
+public class Dice{
+	int numSides;
+
+	public Dice(int numSides){
+		this.numSides = numSides;
+	}
+
+	public int roll(){
+		return random number;
+	}
+
+	//setters and getters
+}
