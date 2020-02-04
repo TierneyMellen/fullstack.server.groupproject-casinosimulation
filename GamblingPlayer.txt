@@ -1,14 +1,15 @@
-public interface GamblingPlayer{
+public class GamblingPlayer extends Player implements Gambler{
 	String name;
 	double balance;
 
 	Player(String name, double balance){
-		this.name = name;
+		super(name);
 		this.balance = balance;
 	}
 
 	public double placeBet(){
 		//ask for bet
+		//check that bet is less than or equal to balance
 		balance -= bet
 		return bet;
 	}

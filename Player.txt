@@ -1,6 +1,9 @@
-public class Player extends GamblingPlayer{
+public class Player{
+	String name;
 
-	Player(String name, double balance){
-		super(name, balance);
+	Player(String name){
+		this.name = name;
 	}
+
+	//getters and setters
 }

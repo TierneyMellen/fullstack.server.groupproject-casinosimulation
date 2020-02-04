@@ -1,4 +1,4 @@
-OtherDiceGame extends GamblingGame{
+OtherDiceGame extends DiceGame implements GamblingGame{
 
 	Dice[] setupDiceArray(int numberOfDice){
 		Dice[] diceArray;
@@ -42,7 +42,7 @@ OtherDiceGame extends GamblingGame{
 		int score = countOccurrences(chosenNumber, rolledArray);
 		switch (score){
 			case 1:
-				player.receiveWinnings(bet * 2);
+				player.receiveWinnings(bet);
 				System.out.println("You broke even");
 				break;
 			case 2:

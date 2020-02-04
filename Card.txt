@@ -1,0 +1,57 @@
+public enum Card{
+	char suit;
+	char face;
+
+	//A = ace, J = jack, Q = queen, k = king
+	//Clubs
+	CA ('C', 'A'), C2 ('C', '2'), C3 ('C', '3'), C4 ('C', '4'), C5 ('C', '5'), C6 ('C', '6'),
+	C7 ('C', '7'), C8 ('C', '8'), C9 ('C', '9'), CJ ('C', 'J'), CQ ('C', 'Q'), CK ('C', 'K'),
+	//Diamonds
+	DA ('D', 'A'), D2 ('D', '2'), D3 ('D', '3'), D4 ('D', '4'), D5 ('D', '5'), D6 ('D', '6'),
+	D7 ('D', '7'), D8 ('D', '8'), D9 ('D', '9'), DJ ('D', 'J'), DQ ('D', 'Q'), DK ('D', 'K'),
+	//Hearts
+	HA ('H', 'A'), H2 ('H', '2'), H3 ('H', '3'), H4 ('H', '4'), H5 ('H', '5'), H6 ('H', '6'),
+	H7 ('H', '7'), H8 ('H', '8'), H9 ('H', '9'), HJ ('H', 'J'), HQ ('H', 'Q'), HK ('H', 'K'),
+	//Spades
+	SA ('S', 'A'), S2 ('S', '2'), S3 ('S', '3'), S4 ('S', '4'), S5 ('S', '5'), S6 ('S', '6'),
+	S7 ('S', '7'), S8 ('S', '8'), S9 ('S', '9'), SJ ('S', 'J'), SQ ('S', 'Q'), SK ('S', 'K');	
+
+	public Card(char suit, char face){
+		this.suit = suit;
+		this.face = face;
+	}
+
+	public void toString(Card c){ //we probably won't use this, but I wanted to write it
+		String s, f;
+		switch (c.getSuit()){
+			case C:
+				s = "Clubs";
+				break;
+			case D:
+				s = "Diamonds";
+				break;
+			case H:
+				s = "Hearts";
+				break;
+			case S:
+				s = "Spades";
+		}
+		switch (c.getFace()){
+			case A:
+				f = "Ace";
+				break;
+			case 2:
+				f = "2";
+				break;
+			case 3:
+				f = "3";
+				break;
+			//...
+			case K:
+				f = "King";
+		}
+		System.out.println("This card is the " + f + " of " + s);
+	}
+
+	//getters and setters
+}
