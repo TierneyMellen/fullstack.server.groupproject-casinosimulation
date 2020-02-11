@@ -1,8 +1,8 @@
-package com.github.curriculeon;
+package com.github.curriculeon.utils;
 
 import java.util.List;
 
-public abstract class DiceGame implements Game {
+public abstract class DiceGame implements Game<DicePlayer> {
     List<Dice> diceArray;
 
     public List<Integer> rollAllDice(Dice[] diceArray){

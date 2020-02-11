@@ -1,4 +1,4 @@
-package com.github.curriculeon;
+package com.github.curriculeon.utils;
 
 
 public class Casino {

@@ -1,10 +1,12 @@
-package com.github.curriculeon;
+package com.github.curriculeon.utils;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class CrownAndAnchor extends DiceGame implements GamblingGame {
     List<Dice> diceArray;
+    List<DicePlayer> players;
+    boolean isOver = false;
 
     void setupDiceArray(List<Dice> diceArray, int numberOfDice) {
         diceArray = null;
@@ -69,26 +71,48 @@ public class CrownAndAnchor extends DiceGame implements GamblingGame {
     @Override
     public void play(Player player) {
         setupDiceArray(diceArray, 3);
-        double bet = wager((GamblingPlayer) player);
+        double bet = wager((DicePlayer) player);
         int chosenNumber = chooseNumber();
         List<Integer> rolledArray = rollAllDice(diceArray);
         int score = countOccurrences(chosenNumber, rolledArray);
         switch (score) {
             case 1:
-                ((GamblingPlayer) player).receiveWinnings(bet);
+                ((DicePlayer) player).receiveWinnings(bet);
                 System.out.println("You broke even");
                 break;
             case 2:
-                ((GamblingPlayer) player).receiveWinnings(bet * 2);
+                ((DicePlayer) player).receiveWinnings(bet * 2);
                 System.out.println("You doubled your bet");
                 break;
             case 3:
-                ((GamblingPlayer) player).receiveWinnings(bet * 3);
+                ((DicePlayer) player).receiveWinnings(bet * 3);
                 System.out.println("You tripled your bet");
                 break;
             default:
                 System.out.println("You won nothing");
         }
         return;
+    }
+
+    @Override
+    public void evaluateTurn(Player player) {
+        play(player);
+    }
+
+    @Override
+    public void addPlayer(Player player) {
+        players.add((DicePlayer) player);
+    }
+
+    @Override
+    public void addPlayers(Iterable player) {
+        for (Object p : player){
+            players.add((DicePlayer) p);
+        }
+    }
+
+    @Override
+    public boolean isOver() {
+        return isOver;
     }
 }

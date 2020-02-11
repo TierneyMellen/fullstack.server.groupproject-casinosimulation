@@ -1,4 +1,4 @@
-package com.github.curriculeon;
+package com.github.curriculeon.utils;
 
 import java.util.List;
 
@@ -29,4 +29,7 @@ public class Hand{
         this.hand = hand;
     }
 
+    public int size() {
+        return hand.size();
+    }
 }

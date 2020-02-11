@@ -1,6 +1,6 @@
-package com.github.curriculeon;
+package com.github.curriculeon.utils;
 
-public class CardPlayer extends Player{
+public class CardPlayer extends Player {
     Hand hand;
     public CardPlayer(String name, Hand hand){
         super(name);
