@@ -120,8 +120,7 @@ public void play() {
 	int sumDices = sum2Dices();
 
 	boolean notPointBet(sumDices);
-
-	
+		
 }
 
 
@@ -173,9 +172,11 @@ public boolean pointBet(int x) {
 
 	if (x == newRoll)
 		return true;
-	else
+	else if (x == 7 || x == 11)
 		return false;
-
+	else 
+		return pointBet(x);
+	
 }
 
 
