@@ -1,4 +1,0 @@
-public interface Gambler{
-	placeBet();
-	receiveWinnings(double winnings);
-}

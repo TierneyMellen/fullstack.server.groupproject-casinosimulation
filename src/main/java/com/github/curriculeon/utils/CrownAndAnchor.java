@@ -4,14 +4,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CrownAndAnchor extends DiceGame implements GamblingGame {
-    List<Dice> diceArray;
-    List<DicePlayer> players;
     boolean isOver = false;
 
-    void setupDiceArray(List<Dice> diceArray, int numberOfDice) {
-        diceArray = null;
+    void setupDiceArray(int numberOfDice) {
+        diceArray.clear();
         for (int i = 0; i < numberOfDice; i++) {
-            this.diceArray.add(new Dice(6)); //assuming regular 6 sided die
+            diceArray.add(new Dice(6)); //assuming regular 6 sided die
         }
     }
 
@@ -31,20 +29,12 @@ public class CrownAndAnchor extends DiceGame implements GamblingGame {
         return occurrences;
     }
 
-    List<Integer> rollAllDice(List<Dice> diceArray) {
-        List<Integer> rolledArray = null;
-        for (Dice d : diceArray) {
-            rolledArray.add(d.roll());
-        }
-        return rolledArray;
-    }
-
     public double wager(GamblingPlayer player) {
         return player.placeBet();
     }
 
     public void play(GamblingPlayer player) {
-        setupDiceArray(diceArray, 3);
+        setupDiceArray(3); //Crown & Anchor is traditionally played with 3 dice
         double bet = wager(player);
         int chosenNumber = chooseNumber();
         List<Integer> rolledArray = rollAllDice(diceArray);
@@ -68,51 +58,28 @@ public class CrownAndAnchor extends DiceGame implements GamblingGame {
         return;
     }
 
-    @Override
-    public void play(Player player) {
-        setupDiceArray(diceArray, 3);
-        double bet = wager((DicePlayer) player);
+    public void play(Player p) {
+        setupDiceArray(3); //Crown & Anchor is traditionally played with 3 dice
+        double bet = wager((GamblingPlayer) p);
         int chosenNumber = chooseNumber();
         List<Integer> rolledArray = rollAllDice(diceArray);
         int score = countOccurrences(chosenNumber, rolledArray);
         switch (score) {
             case 1:
-                ((DicePlayer) player).receiveWinnings(bet);
+                ((GamblingPlayer) p).receiveWinnings(bet);
                 System.out.println("You broke even");
                 break;
             case 2:
-                ((DicePlayer) player).receiveWinnings(bet * 2);
+                ((GamblingPlayer) p).receiveWinnings(bet * 2);
                 System.out.println("You doubled your bet");
                 break;
             case 3:
-                ((DicePlayer) player).receiveWinnings(bet * 3);
+                ((GamblingPlayer) p).receiveWinnings(bet * 3);
                 System.out.println("You tripled your bet");
                 break;
             default:
                 System.out.println("You won nothing");
         }
         return;
-    }
-
-    @Override
-    public void evaluateTurn(Player player) {
-        play(player);
-    }
-
-    @Override
-    public void addPlayer(Player player) {
-        players.add((DicePlayer) player);
-    }
-
-    @Override
-    public void addPlayers(Iterable player) {
-        for (Object p : player){
-            players.add((DicePlayer) p);
-        }
-    }
-
-    @Override
-    public boolean isOver() {
-        return isOver;
     }
 }

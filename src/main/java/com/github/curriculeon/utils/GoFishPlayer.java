@@ -1,8 +1,5 @@
 package com.github.curriculeon.utils;
 
-import java.util.List;
-import java.util.Scanner;
-
 public class GoFishPlayer extends CardPlayer {
 
     public GoFishPlayer(String name, Hand hand) {

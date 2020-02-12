@@ -1,3 +1,0 @@
-public interface GamblingGame extends Game{
-	double wager(Player p);
-}

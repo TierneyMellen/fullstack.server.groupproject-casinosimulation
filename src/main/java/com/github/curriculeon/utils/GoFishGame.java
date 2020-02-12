@@ -7,23 +7,4 @@ public class GoFishGame extends CardGame {
 
     }
 
-    @Override
-    public void evaluateTurn(CardPlayer player) {
-
-    }
-
-    @Override
-    public void addPlayer(CardPlayer player) {
-
-    }
-
-    @Override
-    public void addPlayers(Iterable<? extends CardPlayer> player) {
-
-    }
-
-    @Override
-    public boolean isOver() {
-        return false;
-    }
 }

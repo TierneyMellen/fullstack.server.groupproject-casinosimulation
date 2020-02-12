@@ -4,9 +4,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class Deck{
-    LinkedList<Card> deck;
+    LinkedList<Card> deck; //using LL because it works like a stack and can pop
     public Deck(){
-        createDeck(); //we might want to take this out of the constructor
+        createDeck(); //we might want to take this out of the constructor, this will make a full deck every time
     }
 
     void createDeck(){

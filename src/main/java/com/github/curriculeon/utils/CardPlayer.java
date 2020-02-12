@@ -1,9 +1,10 @@
 package com.github.curriculeon.utils;
 
-public class CardPlayer extends Player {
+public abstract class CardPlayer implements Player {
+    String name;
     Hand hand;
     public CardPlayer(String name, Hand hand){
-        super(name);
+        this.name = name;
         this.hand = hand;
     }
 
@@ -13,5 +14,19 @@ public class CardPlayer extends Player {
 
     public void setHand(Hand hand) {
         this.hand = hand;
+    }
+
+    public void viewHand(){
+        hand.toString();
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 }
