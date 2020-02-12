@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CrownAndAnchor extends DiceGame implements GamblingGame {
+    double pot;
     boolean isOver = false;
 
     void setupDiceArray(int numberOfDice) {
@@ -33,23 +34,33 @@ public class CrownAndAnchor extends DiceGame implements GamblingGame {
         return player.placeBet();
     }
 
+    @Override
+    public double getPot() {
+        return 0;
+    }
+
+    @Override
+    public void setPot(double pot) {
+        this.pot = pot;
+    }
+
     public void play(GamblingPlayer player) {
         setupDiceArray(3); //Crown & Anchor is traditionally played with 3 dice
-        double bet = wager(player);
+        pot = wager(player);
         int chosenNumber = chooseNumber();
         List<Integer> rolledArray = rollAllDice(diceArray);
         int score = countOccurrences(chosenNumber, rolledArray);
         switch (score) {
             case 1:
-                player.receiveWinnings(bet);
+                player.receiveWinnings(pot);
                 System.out.println("You broke even");
                 break;
             case 2:
-                player.receiveWinnings(bet * 2);
+                player.receiveWinnings(pot * 2);
                 System.out.println("You doubled your bet");
                 break;
             case 3:
-                player.receiveWinnings(bet * 3);
+                player.receiveWinnings(pot * 3);
                 System.out.println("You tripled your bet");
                 break;
             default:
@@ -60,21 +71,21 @@ public class CrownAndAnchor extends DiceGame implements GamblingGame {
 
     public void play(Player p) {
         setupDiceArray(3); //Crown & Anchor is traditionally played with 3 dice
-        double bet = wager((GamblingPlayer) p);
+        pot = wager((GamblingPlayer) p);
         int chosenNumber = chooseNumber();
         List<Integer> rolledArray = rollAllDice(diceArray);
         int score = countOccurrences(chosenNumber, rolledArray);
         switch (score) {
             case 1:
-                ((GamblingPlayer) p).receiveWinnings(bet);
+                ((GamblingPlayer) p).receiveWinnings(pot);
                 System.out.println("You broke even");
                 break;
             case 2:
-                ((GamblingPlayer) p).receiveWinnings(bet * 2);
+                ((GamblingPlayer) p).receiveWinnings(pot * 2);
                 System.out.println("You doubled your bet");
                 break;
             case 3:
-                ((GamblingPlayer) p).receiveWinnings(bet * 3);
+                ((GamblingPlayer) p).receiveWinnings(pot * 3);
                 System.out.println("You tripled your bet");
                 break;
             default:
