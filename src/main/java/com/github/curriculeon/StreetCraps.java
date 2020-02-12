@@ -21,11 +21,11 @@ public class StreetCraps {
     }
 
     public void play() {
-        int sum = sum2Dices();
+        int sum = roll();
         notPointBet(sum);
     }
 
-    public int sum2Dices() {
+    public int roll() {
         Dice dice1 = new Dice(6);
         Dice dice2 = new Dice(6);
 
@@ -63,7 +63,7 @@ public class StreetCraps {
 
     public boolean pointBet(int x) {
 
-        int newRoll = sum2Dices();
+        int newRoll = roll();
 
         if (x == newRoll)
             return true;

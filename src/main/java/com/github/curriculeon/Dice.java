@@ -10,10 +10,11 @@ public class Dice {
     private int total_side;
     private int faceValue;
 
+    public Dice() {}
+
     public Dice(int total_side){
         this.total_side = total_side;
     }
-
 
     public int roll(){
         faceValue = (int)(Math.random() * total_side) + 1;
@@ -26,6 +27,14 @@ public class Dice {
 
     public int getFaceValue() {
         return this.faceValue;
+    }
+
+    public int getTotal_side() {
+        return this.total_side;
+    }
+
+    public void setTotal_side(int total_side) {
+        this.total_side = total_side;
     }
 
     public String toString() {
