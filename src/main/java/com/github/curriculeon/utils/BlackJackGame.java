@@ -23,4 +23,3 @@ public class BlackJackGame extends CardGame implements GamblingGame {
         this.pot = pot;
     }
 }
-}

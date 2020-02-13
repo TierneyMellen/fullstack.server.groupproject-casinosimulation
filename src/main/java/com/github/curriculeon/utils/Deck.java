@@ -10,7 +10,7 @@ public class Deck{
     }
 
     void createDeck(){
-        LinkedList<Card> deck = null;
+        LinkedList<Card> deck = new LinkedList<>();
         for (Card c : Card.values()){
             deck.add(c);
         }
@@ -18,6 +18,10 @@ public class Deck{
 
     public Card draw(){
         return deck.pop();
+    }
+
+    public Card peek(){
+        return deck.peek();
     }
 
     public boolean remove(Card c){

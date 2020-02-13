@@ -3,9 +3,10 @@ package com.github.curriculeon.utils;
 import java.util.List;
 import java.util.Scanner;
 
-public class CrownAndAnchor extends DiceGame implements GamblingGame {
+public class CrownAndAnchorGame extends DiceGame implements GamblingGame {
     double pot;
     boolean isOver = false;
+
 
     void setupDiceArray(int numberOfDice) {
         diceArray.clear();

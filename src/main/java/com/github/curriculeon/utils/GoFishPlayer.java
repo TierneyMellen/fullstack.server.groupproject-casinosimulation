@@ -8,10 +8,12 @@ public class GoFishPlayer extends CardPlayer {
 
     public boolean ask(Card card) {
         //stuff goes here
+        return true;
     }
 
     public Card give(Card card){
         //stuff goes here
+        return null;
     }
 
 }
